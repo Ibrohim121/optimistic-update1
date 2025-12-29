@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchProducts, deleteProduct, updateProduct } from "./api";
 
@@ -65,7 +64,7 @@ export default function ProductList() {
           }}
         >
           <p style={{ margin: "0 0 0.5rem 0", fontWeight: "bold" }}>
-            {p.title} — <span style={{ color: "green" }}>${p.price}</span>
+            {p.title} — <span style={{ color: "green" }}>${p.price ?? 0}</span>
           </p>
 
           <div style={{ display: "flex", gap: "0.5rem" }}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addProduct } from "./api";
 
@@ -35,8 +35,8 @@ export default function ProductForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title.trim() || !price.trim()) return;
-    mutation.mutate({ title, price });
+    if (!title.trim() || price === "") return;
+    mutation.mutate({ title, price: Number(price) });
     setTitle("");
     setPrice("");
   };
